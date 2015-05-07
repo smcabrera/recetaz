@@ -1,0 +1,11 @@
+%h1 Editing recipe
+
+.row
+  .col-md-8
+    = render 'form'
+  .col-md-4
+    = render 'recipe_ingredients/form'
+
+= link_to 'Show', @recipe
+\|
+= link_to 'Back', recipes_path

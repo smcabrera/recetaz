@@ -1,0 +1,8 @@
+- provide(:title, "Home")
+.jumbotron
+  %h1= app_name
+  %p.lead This is a short summary of what the app does
+  %p
+    = link_to "Sign in", new_user_session_path, class: "btn btn-primary btn-lg"
+    or
+    \#{link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg"}

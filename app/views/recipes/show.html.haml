@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%h3= @recipe.name
+
+%p= @recipe.instructions
+
+%ul
+  - @recipe.ingredients.each do |ingredient|
+    %li
+      = "#{ingredient.name}: "
+      = RecipeIngredient.find_by_ingredient_id(ingredient.id).ingredient_amount
+
+= link_to 'Edit', edit_recipe_path(@recipe)
+\|
+= link_to 'Back', recipes_path

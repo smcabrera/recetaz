@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410215116) do
+ActiveRecord::Schema.define(version: 20150430052621) do
+
+  create_table "ingredients", force: true do |t|
+    t.string   "name"
+    t.integer  "cost_cents",    default: 0,     null: false
+    t.string   "cost_currency", default: "USD", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipe_ingredients", force: true do |t|
+    t.integer  "recipe_id"
+    t.integer  "ingredient_id"
+    t.float    "ingredient_amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+  add_index "recipe_ingredients", ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+
+  create_table "recipes", force: true do |t|
+    t.string   "name"
+    t.text     "instructions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

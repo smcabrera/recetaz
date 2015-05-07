@@ -43,3 +43,5 @@ group :development do
 end
 
 
+
+gem 'money-rails', '1.4.1'
