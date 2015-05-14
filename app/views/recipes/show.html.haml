@@ -5,10 +5,10 @@
 %p= @recipe.instructions
 
 %ul
-  - @recipe.ingredients.each do |ingredient|
+  - @recipe.recipe_ingredients.each do |ri|
     %li
-      = "#{ingredient.name}: "
-      = RecipeIngredient.find_by_ingredient_id(ingredient.id).ingredient_amount
+      = "#{ri.ingredient.name}: "
+      = ri.ingredient_amount
 
 = link_to 'Edit', edit_recipe_path(@recipe)
 \|

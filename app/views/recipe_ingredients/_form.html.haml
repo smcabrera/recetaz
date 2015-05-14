@@ -7,7 +7,7 @@
         %tr{:id => "recipe-ingredient-#{recipe_ingredient.id}" }
           %td= recipe_ingredient.ingredient.name
           -# TODO: I'd like this to work where the current amount appears as default. I think for that I'll need the right kind of form helper (which is not select)
-          %td= f.select :ingredient_amount, (1..10).to_a, class: 'form-control'
+          %td= f.number_field :ingredient_amount, :"data-id" => recipe_ingredient.id, :"data-recipe" => @recipe.id, class: 'ingredient-amount-field form-control', :min => 1, :max => 10, :step => 0.5
           %td= link_to "X", [@recipe, recipe_ingredient],  method: :delete, remote: true
 
   .form-group

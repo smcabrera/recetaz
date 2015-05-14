@@ -15,3 +15,20 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(".ingredient-amount-field").change(function(){
+  var ri_id = $(this).data('id')
+  var recipe_id = $(this).data('recipe');
+
+  console.log("I've just been interacted with!")
+  data = {
+    amount : $(this).val()
+  }
+
+  $.post("/recipes/" + recipe_id + "/recipe_ingredients/" + ri_id, data, function(data){
+     // Plus create the route and controller action for creating a recipe
+  });
+
+});
+
+

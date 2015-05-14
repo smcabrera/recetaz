@@ -1,6 +1,5 @@
 class RecipeIngredientsController < ApplicationController
   before_action :set_recipe_ingredient, only: [:destroy]
-  respond_to :html
 
   def create
     session[:return_to] ||= request.referer
@@ -14,6 +13,14 @@ class RecipeIngredientsController < ApplicationController
   def destroy
     @recipe = @recipe_ingredient.recipe
     @recipe_ingredient.destroy
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def update
 
     respond_to do |format|
       format.html
